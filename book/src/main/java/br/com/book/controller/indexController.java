@@ -6,11 +6,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class indexController {
+
     @GetMapping("/lista")
-    public ModelAndView getList() {
+    public ModelAndView getIndex() {
         ModelAndView mv = new ModelAndView("index");
         return mv;
-        
     }
-    
+
 }

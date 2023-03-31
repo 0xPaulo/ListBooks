@@ -1,4 +1,5 @@
 package br.com.book.entity;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,18 +15,19 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    // @Column(name = "id_book")
     public Long id;
+    @Column(name = "book_name")
+    public String name;
 
-    @Column(name = "name")
-    public String nome;
-    
+    @JoinColumn(name = "author_id")
     @ManyToOne
-    @JoinColumn(name = "id_author")
     private Author author;
 
-    public Book(String nome, Author author) {
-        this.nome = nome;
+    public Book(String name, Author author) {
+        this.name = name;
         this.author = author;
     }
+
+    
+
 }
